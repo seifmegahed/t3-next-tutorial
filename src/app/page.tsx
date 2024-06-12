@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { db } from "~/server/db";
 
 export const dynamic = "force-dynamic";
 
-/* eslint-disable @next/next/no-img-element */
 const mockUrls = [
   "https://utfs.io/f/df53d63f-fd2a-4b4d-89d5-3f36634c5175-7grfis.png",
   "https://utfs.io/f/35699ca4-1ca0-44d6-9202-f2031652da3f-7grfit.png",
@@ -18,14 +18,14 @@ const mockImages = mockUrls.map((url, index) => ({
 }));
 
 export default async function HomePage() {
-  const posts = await db.query.posts.findMany();
+  const images = await db.query.images.findMany();
 
   return (
     <main className="">
       <div className="flex flex-wrap gap-4">
-        {posts.map((post) => (
-          <div key={post.id}>
-            {post.name}
+        {images.map((image) => (
+          <div key={image.id}>
+            {image.name}
           </div>
         ))}
         {[...mockImages, ...mockImages].map((image, index) => (
