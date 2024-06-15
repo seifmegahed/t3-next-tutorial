@@ -1,15 +1,17 @@
-import { getImage } from "~/server/db/queries";
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+import { Modal } from "./modal";
+import FullPageImageView from "~/app/_components/full-image-page";
 
-export default async function PhotoModal({
+export default function PhotoModal({
   params: { id: photoId },
 }: {
-  params: { id: number };
+  params: { id: string };
 }) {
-  const image = await getImage(photoId);
+  const idAsNumber = Number(photoId);
+  if(Number.isNaN(idAsNumber)) throw new Error("Invalid photo id");
   return (
-    <div>
-      <Image src={image.url} alt={image.name} width={1000} height={1000} />
-    </div>
+    <Modal>
+      <FullPageImageView id={idAsNumber} />
+    </Modal>
   );
 }
