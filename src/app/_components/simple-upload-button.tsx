@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
+import UploadSVG from "../_icons/UploadSVG";
 
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
@@ -37,8 +38,10 @@ export default function SimpleUploadButton() {
     },
   });
   return (
-    <div>
-      <label htmlFor="upload-button">Upload</label>
+    <div className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full hover:bg-white/20">
+      <label htmlFor="upload-button" className="cursor-pointer">
+        <UploadSVG size={5} />
+      </label>
       <input
         id="upload-button"
         type="file"

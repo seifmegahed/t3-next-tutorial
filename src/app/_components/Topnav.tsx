@@ -1,7 +1,14 @@
 "use client";
 
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import {
+  ClerkLoading,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import SimpleUploadButton from "./simple-upload-button";
+import Loading from "./Loading";
 
 export default function TopNav() {
   return (
@@ -12,9 +19,14 @@ export default function TopNav() {
           <SignInButton />
         </SignedOut>
         <SignedIn>
-          <SimpleUploadButton />
-          <UserButton />
+          <div className="flex items-center gap-3">
+            <SimpleUploadButton />
+            <UserButton />
+          </div>
         </SignedIn>
+        <ClerkLoading>
+          <Loading size={7} />
+        </ClerkLoading>
       </div>
     </nav>
   );
