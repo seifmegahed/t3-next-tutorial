@@ -9,7 +9,7 @@ async function GalleryBody() {
   const images = await getMyImages();
   return (
     <div className="flex w-full flex-wrap justify-center gap-4 p-4">
-      {[...images,...images, ...images].map((image) => (
+      {images.map((image) => (
         <Link key={image.id} href={`/img/${image.id}`}>
           <div className="flex h-52 w-48 flex-col justify-between">
             <div className="flex h-full w-full justify-center overflow-hidden rounded-lg bg-white">
