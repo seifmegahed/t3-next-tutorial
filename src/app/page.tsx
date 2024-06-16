@@ -15,8 +15,8 @@ async function GalleryBody() {
             <div className="flex h-full w-full justify-center overflow-hidden rounded-lg bg-white">
               <Image
                 src={image.url}
-                width={480}
-                height={480}
+                width={192}
+                height={192}
                 style={{ objectFit: "cover" }}
                 alt={image.name}
               />
