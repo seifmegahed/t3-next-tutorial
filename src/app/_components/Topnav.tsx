@@ -25,7 +25,7 @@ export default function TopNav() {
           </div>
         </SignedIn>
         <ClerkLoading>
-          <Loading size={7} />
+          <Loading />
         </ClerkLoading>
       </div>
     </nav>

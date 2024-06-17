@@ -17,11 +17,11 @@ async function GalleryBody() {
                 src={image.url}
                 width={192}
                 height={192}
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "contain" }}
                 alt={image.name}
               />
             </div>
-            <div className="h-4">{image.name}</div>
+            <div className="h-5">{image.name}</div>
           </div>
         </Link>
       ))}

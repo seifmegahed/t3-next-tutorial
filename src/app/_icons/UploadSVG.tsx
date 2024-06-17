@@ -1,4 +1,4 @@
-export default function UploadSVG(props: { size: number }) {
+export default function UploadSVG() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ export default function UploadSVG(props: { size: number }) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`size-${props.size}`}
+      className={`size-5`}
     >
       <path
         strokeLinecap="round"

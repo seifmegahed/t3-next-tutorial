@@ -13,6 +13,8 @@
 - [x] Next Image
 - [x] Error Management (w/ Sentry)
 - [x] Routing/image page (parallel route)
+- [x] Update upload button to be less cringe
+- [ ] ShadUi Toasts
 - [ ] Delete button (w/ Server Actions)
 - [ ] Analytics (posthog)
 - [ ] Rate-limiting (upstash)
