@@ -30,7 +30,7 @@ export default async function FullPageImageView(props: { id: number }) {
         <div className="flex flex-col p-2">
           <form action={async () => {
             "use server";
-            await deleteImage(props.id);
+            await deleteImage(image.id, image.key);
           }}>
             <Button type="submit" variant="destructive">
               Delete

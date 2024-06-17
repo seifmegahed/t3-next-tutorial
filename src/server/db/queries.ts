@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { images } from "~/server/db/schema";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
+import { utapi } from "~/server/uploadthing";
 
 export async function getMyImages() {
   const user = auth();
@@ -31,9 +32,18 @@ export async function getImage(id: number) {
   return image;
 }
 
-export async function deleteImage(id: number) {
+export async function deleteImage(id: number, key: string) {
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
+
+  await utapi
+    .deleteFiles(key)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   await db
     .delete(images)

@@ -21,7 +21,7 @@ export const ourFileRouter = {
 
       const fullUserData = await clerkClient.users.getUser(user.userId);
 
-      if(fullUserData?.privateMetadata?.["can-upload"] !== "true") 
+      if(fullUserData?.privateMetadata?.["can-upload"] !== true) 
         throw new UploadThingError("User not allowed to upload");
 
       const {success} = await ratelimit.limit(user.userId)
@@ -37,6 +37,7 @@ export const ourFileRouter = {
       
       await db.insert(images).values({
         name: file.name,
+        key: file.key,
         url: file.url,
         userId: metadata.userId,
       });
