@@ -47,6 +47,10 @@ export default function SimpleUploadButton() {
         },
       );
     },
+    onUploadError(error) {
+      toast.dismiss("upload-begin");
+      toast(<span className="text-lg">Upload failed: {error.message}</span>);
+    },
     onClientUploadComplete() {
       toast.dismiss("upload-begin");
       toast(<span className="text-lg">Upload complete!</span>);
