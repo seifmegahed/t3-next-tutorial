@@ -36,18 +36,11 @@ export async function deleteImage(id: number, key: string) {
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
 
-  await utapi
-    .deleteFiles(key)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  await db
-    .delete(images)
-    .where(and(eq(images.id, id), eq(images.userId, user.userId)));
+  await utapi.deleteFiles(key).then(async () => {
+    await db
+      .delete(images)
+      .where(and(eq(images.id, id), eq(images.userId, user.userId)));
+  });
 
   redirect("/");
 }
