@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Modal } from "./modal";
-import FullPageImageView from "~/app/_components/full-image-page";
+import FullPageImageView from "~/common/full-image-page";
 
 export default function PhotoModal({
   params: { id: photoId },
